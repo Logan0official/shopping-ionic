@@ -1,1 +1,19 @@
+ion-icon {
+    width: 2rem;
+    height: 2rem;
+    color: black;
+}
 
+ion-label {
+    color: black;
+    font-weight: 700;
+}
+
+ion-badge {
+    font-size: 12px;
+    padding: 2%;
+}
+
+ion-tab-bar, ion-tab-button{
+    --background: var(--ion-color-warning);
+}

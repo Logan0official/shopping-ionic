@@ -1,0 +1,37 @@
+<!-- <div class="backdrop" (click)='onCancel()'></div> -->
+<div class="ion-margin">
+  <ion-row>
+    <ion-col size-xs="12" size-sm="5.5" size-md="3.5" size-lg="3.5">
+      <ion-row>
+        <ion-col>
+          <img [src]="product.image" [alt]="product.name" class="img-responsive" height="330px" width="330px">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h3>{{ product.name }}</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>{{ product.price }}$</p>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size-xs="12" size-sm="5.5" size-md="7.5" size-lg="7.5">
+      <ion-row>
+        <ion-col>
+          <p>{{ product.description }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-xs="12" size-sm="3" size-md="3" size-lg="3" offset-sm="1.5" offset-md="1.5" offset-lg="1.5">
+      <ion-button (click)="addFavourite(product)">Favourite Product</ion-button>
+    </ion-col>
+    <ion-col size-xs="12" size-sm="3" size-md="3" size-lg="3" offset-sm="1.5" offset-md="1.5" offset-lg="1.5">
+      <ion-button (click)="addToCart(product)">Cart Product</ion-button>
+    </ion-col>
+  </ion-row>
+</div>

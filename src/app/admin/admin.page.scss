@@ -1,0 +1,8 @@
+ion-toolbar {
+    --background: var(--ion-color-warning);
+    --color: var(--ion-color-warning-contrast);
+}
+
+ion-content {
+    --background: rgba(var(--ion-color-warning-tint-rgb), 0.5);
+}

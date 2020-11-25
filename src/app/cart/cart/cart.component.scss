@@ -1,0 +1,45 @@
+.product {
+  border: 2px solid var(--ion-color-warning);
+  background-color: white;
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  margin: 10px auto;
+  width: auto;
+  height: auto;
+}
+
+h6 {
+  font-weight: 600;
+}
+
+ion-button {
+  --background: rgba(var(--ion-color-warning-tint-rgb), 0.5);
+  color: black;
+  font-weight: 500;
+}
+
+ion-icon {
+  color: var(--ion-color-warning);
+  height: 2rem;
+  width: 2rem;
+}
+
+ion-searchbar {
+  border-radius: 10px;
+}
+
+.cart {
+  margin-top: 5rem;
+}
+
+.cart-paragraph {
+  font-size: 20px;
+  font-weight: 500;
+}

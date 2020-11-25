@@ -1,0 +1,37 @@
+<ion-searchbar [(ngModel)]="filteredSearch"></ion-searchbar>
+<div class="ion-margin" *ngIf="favoruiteProducts.length > 0">
+  <ion-row class="ion-justify-content-evenly">
+    <ion-col size-xs="12" size-sm="5.5" size-md="3.5" size-lg="3.5"
+      *ngFor="let product of favoruiteProducts | filter:'name':filteredSearch" class="ion-margin-top product">
+      <img [src]="product.image" alt="product.name" height="250px" width="250px">
+      <h6>{{ product.name | shorten:20 }}</h6>
+      <p>{{ product.description | shorten:50 }}</p>
+      <p>{{ product.price }}$</p>
+      <hr>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="4">
+          <ion-button (click)="removeFavourite(product)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div class="favorites" *ngIf="favoruiteProducts.length === 0">
+  <ion-row>
+    <ion-col size-xs="10" size-sm="8" size-md="6" size-lg="6" offset-xs="1" offset-sm="2" offset-md="3" offset-lg="3">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+          <p class="favorites-paragraph">Oops! You have not added any products to your favorites yet</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4" offset="4">
+          <ion-button routerLink="/products">Products</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</div>

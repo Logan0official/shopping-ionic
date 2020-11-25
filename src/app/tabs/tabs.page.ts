@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductService } from '../shared/service/product.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
-
+  constructor(
+    public productService: ProductService
+  ) { }
 }

@@ -1,20 +1,23 @@
 <ion-tabs>
-
+  
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1">
-      <ion-icon name="triangle"></ion-icon>
-      <ion-label>Tab 1</ion-label>
+    <ion-tab-button tab="products">
+      <ion-icon name="phone-portrait-outline"></ion-icon>
+      <ion-label>Products</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2">
-      <ion-icon name="ellipse"></ion-icon>
-      <ion-label>Tab 2</ion-label>
+    <ion-tab-button tab="favourite">
+      <ion-icon name="heart-outline"></ion-icon>
+      <ion-label>Favourite</ion-label>
+      <ion-badge color="dark">{{ productService.getLocalFavouriteProducts().length }}</ion-badge>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3">
-      <ion-icon name="square"></ion-icon>
-      <ion-label>Tab 3</ion-label>
+    <ion-tab-button tab="cart">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-label>Cart</ion-label>
+      <ion-badge color="dark">{{ productService.getLocalCartProducts().length }}</ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
+
 
 </ion-tabs>

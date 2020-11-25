@@ -1,0 +1,33 @@
+
+<ion-searchbar [(ngModel)]="filteredSearch"></ion-searchbar>
+<div class="ion-margin">
+  <ion-row>
+    <ion-col size-xs="12" size-sm="8" size-md="6" size-lg="6" offset-sm="2" offset-md="3" offset-lg="3">
+      <ion-button (click)="onNewProduct()">Create new product</ion-button>
+    </ion-col>
+  </ion-row>
+</div>
+<div class="ion-margin">
+  <ion-row class="table">
+    <ion-col size="12" *ngFor="let product of productList | filter:'name':filteredSearch">
+      <ion-row>
+        <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="3" class="gray">
+          <p>{{ product.name | shorten:15 }}</p>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="4" class="white">
+          <p>{{ product.description | shorten:25 }}</p>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2" class="gray">
+          <p>{{ product.price | shorten:7 }}$</p>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="1" class="white"><img [src]="product.image"></ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="1" class="gray"><ion-button (click)="onEditProduct(product.$key)">
+            <ion-icon name="pencil"></ion-icon>
+          </ion-button></ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="1" class="gray"><ion-button (click)="removeProduct(product.$key)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button></ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</div>

@@ -1,0 +1,28 @@
+a {
+  color: blue !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+ion-label {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+ion-input {
+  background-color: white;
+  border: 1px solid var(--ion-color-warning);
+  border-radius: 10px;
+}
+
+ion-button {
+  --background: rgba(var(--ion-color-warning-tint-rgb), 0.5);
+  color: black;
+  font-weight: 500;
+  width: 100%;
+  margin: 20px 0;
+}
+
+ion-input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}

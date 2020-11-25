@@ -1,0 +1,30 @@
+img {
+  margin: 10% 10%;
+  width: 80%;
+  height: 80%;
+}
+
+ion-label {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+ion-input,
+ion-textarea {
+  background-color: white;
+  // background-color: rgba(80, 80, 80, 0.1);
+  border: 1px solid var(--ion-color-warning);
+  border-radius: 10px;
+}
+
+ion-button {
+  --background: rgba(var(--ion-color-warning-tint-rgb), 0.5);
+  color: black;
+  font-weight: 500;
+  width: 100%;
+}
+
+ion-input.ng-invalid.ng-touched,
+ion-textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

@@ -1,0 +1,17 @@
+img {
+  margin: 2.5% 2.5%;
+  width: 95%;
+  height: 95%;
+}
+
+p {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+ion-button {
+  --background: rgba(var(--ion-color-warning-tint-rgb), 0.5);
+  color: black;
+  font-weight: 500;
+  width: 100%;
+}

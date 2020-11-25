@@ -1,0 +1,47 @@
+ion-button {
+  --background: rgba(var(--ion-color-warning-tint-rgb), 0.5);
+  color: black;
+  font-weight: 500;
+  width: 100%;
+}
+
+ion-icon {
+  opacity: 0.5;
+  height: 2rem;
+  width: 2rem;
+}
+
+.table {
+  margin: 30px 0 100px 0;
+
+  ion-row {
+    width: 100%;
+    margin: 0;
+
+    ion-col {
+      border: 2px solid var(--ion-color-warning);
+      height: 60px;
+    }
+  }
+}
+
+p {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+.white {
+  background-color: white;
+}
+
+.gray {
+  background-color: rgba(80, 80, 80, 0.1);
+}
+
+img {
+  max-width: 50px;
+  max-height: 50px;
+}
