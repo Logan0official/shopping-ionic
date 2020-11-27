@@ -12,13 +12,13 @@ ion-label {
 ion-input,
 ion-textarea {
   background-color: white;
-  // background-color: rgba(80, 80, 80, 0.1);
   border: 1px solid var(--ion-color-warning);
   border-radius: 10px;
 }
 
 ion-button {
-  --background: rgba(var(--ion-color-warning-tint-rgb), 0.5);
+  --background: var(--ion-color-warning-button);
+  --background-hover: var(--ion-color-warning-button);
   color: black;
   font-weight: 500;
   width: 100%;

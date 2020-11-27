@@ -15,12 +15,12 @@
           <p>{{ product.name | shorten:15 }}</p>
         </ion-col>
         <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="4" class="white">
-          <p>{{ product.description | shorten:25 }}</p>
+          <p>{{ product.description | shorten:20 }}</p>
         </ion-col>
         <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2" class="gray">
           <p>{{ product.price | shorten:7 }}$</p>
         </ion-col>
-        <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="1" class="white"><img [src]="product.image"></ion-col>
+        <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="1" class="white"><div class="img"><img [src]="product.image"></div></ion-col>
         <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="1" class="gray"><ion-button (click)="onEditProduct(product.$key)">
             <ion-icon name="pencil"></ion-icon>
           </ion-button></ion-col>

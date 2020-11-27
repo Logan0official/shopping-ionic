@@ -1,12 +1,15 @@
 ion-icon {
     width: 2rem;
     height: 2rem;
-    color: black;
 }
 
 ion-label {
-    color: black;
     font-weight: 700;
+}
+
+ion-tab-button {
+    --color: #000;
+    --color-selected: #ff6429;
 }
 
 ion-badge {

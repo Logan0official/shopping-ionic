@@ -3,7 +3,7 @@
     <ion-col size-xs="12" size-sm="8" size-md="6" size-lg="6" offset-sm="2" offset-md="3" offset-lg="3">
       <form #loginForm="ngForm" (ngSubmit)="signInWithEmail(loginForm)">
         <ion-row>
-          <ion-col size-xs="4" size-sm="4" size-md="4" size-lg="3.5" offset-xs="4" offset-sm="4" offset-md="4" offset-lg="4.25">
+          <ion-col size="6" offset="3">
             <h1>Sign In</h1>
           </ion-col>
         </ion-row>
@@ -33,18 +33,18 @@
     <ion-col  size-xs="12" size-sm="8" size-md="6" size-lg="6" offset-sm="2" offset-md="3" offset-lg="3">
       <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
         <ion-row>
-          <ion-col size-xs="4" size-sm="4" size-md="4" size-lg="3.5" offset-xs="4" offset-sm="4" offset-md="4" offset-lg="4.25">
+          <ion-col size="6" offset="3">
             <h1>Sign Up</h1>
           </ion-col>
         </ion-row>
         <ion-label for="loginEmailId">Your Email</ion-label>
-        <ion-input type="email" id="loginEmailId" aria-describedby="emailHelp" placeholder="Enter email" name="emailId"
+        <ion-input type="email" id="emailId" aria-describedby="emailHelp" placeholder="Enter email" name="emailId"
           [(ngModel)]="createUser.emailId" mdbInputValidate [email]="true">
         </ion-input>
         <ion-label for="password">Your Password</ion-label>
-        <ion-input type="password" id="loginPassword" name="loginPassword" [(ngModel)]="createUser.loginPassword"
+        <ion-input type="password" id="password" name="password" [(ngModel)]="createUser.loginPassword"
           autocomplete="current-password" placeholder="Password"></ion-input>
-        <ion-button type="submit" id="loginButton" mdbRippleRadius>
+        <ion-button type="submit" id="signUpButton" mdbRippleRadius>
           Sign Up
         </ion-button>
         <div>

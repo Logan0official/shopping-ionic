@@ -25,7 +25,9 @@ h6 {
 }
 
 ion-button {
-  --background: rgba(var(--ion-color-warning-tint-rgb), 0.5);
+  --background: var(--ion-color-warning-button);
+  --background-hover: var(--ion-color-warning-button);
+  width: 100%;
 }
 
 ion-icon {
@@ -36,4 +38,10 @@ ion-icon {
 
 ion-searchbar {
   border-radius: 10px;
+}
+ 
+@media only screen and (min-width: 429px) and (max-width: 575px) {
+  .img {
+    text-align: center;
+  }
 }

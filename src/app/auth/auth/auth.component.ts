@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { UserService } from "../../shared/service/user.service";
 import { AuthService } from "../../shared/service/auth.service";
 import { User } from "../../shared/model/user.model";
-// import { NbIconConfig, NbToastrService } from '@nebular/theme';
+import { ToastController } from '@ionic/angular';
 declare var $: any;
 @Component({
   selector: "app-auth",
@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    // private toastrService: NbToastrService
+    public toastController: ToastController
   ) {
     this.createUser = new User();
   }
@@ -50,8 +50,7 @@ export class AuthComponent implements OnInit {
 
         this.userService.createUser(user);
 
-        // const iconConfig: NbIconConfig = { icon: 'unlock-outline', pack: 'eva' };
-        // this.toastrService.success('', `User Registeration!`, iconConfig);
+        this.addUserToast();
 
         setTimeout((router: Router) => {
           $("#createUserForm").modal("hide");
@@ -61,17 +60,53 @@ export class AuthComponent implements OnInit {
       .catch((err) => {
         this.errorInUserCreate = true;
         this.errorMessage = err;
-        // const iconConfig: NbIconConfig = { icon: 'alert-triangle-outline', pack: 'eva' };
-        // this.toastrService.danger('', err, iconConfig);
+        this.errorAddUserToast();
       });
+  }
+
+  async addUserToast() {
+    const toast = await this.toastController.create({
+      message: 'User Registeration!',
+      position: 'top',
+      duration: 3000,
+      color: 'success', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'checkmark-circle-outline',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
+  }
+
+  async errorAddUserToast() {
+    const toast = await this.toastController.create({
+      message: 'A user with this email address already exists!',
+      position: 'top',
+      duration: 3000,
+      color: 'danger', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'close-circle-outline',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
   }
 
   signInWithEmail(userForm: NgForm) {
     this.authService
       .signInRegular(userForm.value["emailId"], userForm.value["loginPassword"])
       .then((res) => {
-        // const iconConfig: NbIconConfig = { icon: 'unlock-outline', pack: 'eva' };
-        // this.toastrService.success('', `Authentication Success!`, iconConfig);
+        this.loginUserToast();
 
         const returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
 
@@ -82,12 +117,45 @@ export class AuthComponent implements OnInit {
         this.router.navigate(["/"]);
       })
       .catch((err) => {
-        // const iconConfig: NbIconConfig = { icon: 'alert-triangle-outline', pack: 'eva' };
-        // this.toastrService.danger('', 'Invalid Credentials, Please Check your credentials!', iconConfig);
+        this.errorLoginUserToast();
       });
   }
 
-  onSignup() {
-    this.router.navigate(['signup'], { relativeTo: this.route });
+  async loginUserToast() {
+    const toast = await this.toastController.create({
+      message: 'Authentication Success!',
+      position: 'top',
+      duration: 3000,
+      color: 'success', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'checkmark-circle-outline',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
+  }
+
+  async errorLoginUserToast() {
+    const toast = await this.toastController.create({
+      message: 'Invalid Credentials, Please Check your credentials!',
+      position: 'top',
+      duration: 3000,
+      color: 'danger', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'close-circle-outline',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
   }
 }

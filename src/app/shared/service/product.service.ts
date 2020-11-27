@@ -4,9 +4,9 @@ import {
   AngularFireList,
   AngularFireObject,
 } from "@angular/fire/database";
+import { ToastController } from '@ionic/angular';
 import { Product } from "../model/product.model";
 import { AuthService } from "../service/auth.service";
-// import { NbIconConfig, NbToastrService } from '@nebular/theme';
 
 @Injectable()
 export class ProductService {
@@ -19,7 +19,7 @@ export class ProductService {
   constructor(
     private db: AngularFireDatabase,
     private authService: AuthService,
-    // private toastrService: NbToastrService
+    public toastController: ToastController
   ) { }
 
   getProduct(index: string) {
@@ -33,6 +33,8 @@ export class ProductService {
 
   createProduct(data: Product) {
     this.products.push(data);
+
+    this.addProductToast();
   }
 
   getProductById(key: string) {
@@ -42,10 +44,62 @@ export class ProductService {
 
   updateProduct(data: Product) {
     this.product.update(data);
+
+    this.updateProductToast();
   }
 
   deleteProduct(key: string) {
     this.products.remove(key);
+
+    this.deleteProductToast();
+  }
+
+  async addProductToast() {
+    const toast = await this.toastController.create({
+      message: 'New product added!',
+      position: 'top',
+      duration: 3000,
+      color: 'success', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'checkmark-circle-outline',
+        }
+      ]
+    });
+    toast.present();
+  }
+
+  async updateProductToast() {
+    const toast = await this.toastController.create({
+      message: 'The product has been changed!',
+      position: 'top',
+      duration: 3000,
+      color: 'success', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'checkmark-circle-outline',
+        }
+      ]
+    });
+    toast.present();
+  }
+
+  async deleteProductToast() {
+    const toast = await this.toastController.create({
+      message: 'The item has been deleted!',
+      position: 'top',
+      duration: 3000,
+      color: 'danger', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'close-circle-outline',
+        }
+      ]
+    });
+    toast.present();
   }
 
 
@@ -66,8 +120,7 @@ export class ProductService {
       localStorage.setItem("avf_item", JSON.stringify(a));
     }, 500);
 
-    // const iconConfig: NbIconConfig = { icon: 'heart-outline', pack: 'eva' };
-    // this.toastrService.success('', `The product has been added to favorites!`, iconConfig);
+    this.addFavouriteToast();
   }
 
   getLocalFavouriteProducts(): Product[] {
@@ -92,6 +145,40 @@ export class ProductService {
     }
 
     localStorage.setItem("avf_item", JSON.stringify(products));
+    
+    this.removeFavouriteToast();
+  }
+
+  async addFavouriteToast() {
+    const toast = await this.toastController.create({
+      message: 'The product has been added to favorites!',
+      position: 'top',
+      duration: 3000,
+      color: 'success', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'heart',
+        }
+      ]
+    });
+    toast.present();
+  } 
+
+  async removeFavouriteToast() {
+    const toast = await this.toastController.create({
+      message: 'Item removed from favorites!',
+      position: 'top',
+      duration: 3000,
+      color: 'warning', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'trash',
+        }
+      ]
+    });
+    toast.present();
   }
 
 
@@ -104,8 +191,7 @@ export class ProductService {
       localStorage.setItem("avct_item", JSON.stringify(a));
     }, 500);
 
-    // const iconConfig: NbIconConfig = { icon: 'shopping-cart-outline', pack: 'eva' };
-    // this.toastrService.success('', `The product  has been added to cart!`, iconConfig);
+    this.addCartToast();
   }
 
   removeLocalCartProduct(product: Product) {
@@ -119,6 +205,8 @@ export class ProductService {
     }
 
     localStorage.setItem("avct_item", JSON.stringify(products));
+
+    this.removeCartToast();
   }
 
   getLocalCartProducts(): Product[] {
@@ -126,6 +214,38 @@ export class ProductService {
       JSON.parse(localStorage.getItem("avct_item")) || [];
 
     return products;
+  }
+
+  async addCartToast() {
+    const toast = await this.toastController.create({
+      message: 'The product has been added to cart!',
+      position: 'top',
+      duration: 3000,
+      color: 'success', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'cart',
+        }
+      ]
+    });
+    toast.present();
+  }
+
+  async removeCartToast() {
+    const toast = await this.toastController.create({
+      message: 'Item removed from cart!',
+      position: 'top',
+      duration: 3000,
+      color: 'warning', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'trash',
+        }
+      ]
+    });
+    toast.present();
   }
 }
 

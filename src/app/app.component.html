@@ -10,15 +10,15 @@
             <ion-label *ngIf="this.authService.user$ | async as user">{{ user.emailId }}</ion-label>
           </ion-list-header>
           <ion-menu-toggle autoHide="false">
-            <ion-item button *ngIf="!isAuthenticated" [routerLink]="['/auth']">
+            <ion-item button *ngIf="!isAuthenticated" [routerLink]="['/auth']" lines="none">
               <ion-icon name="key" slot="start"></ion-icon>
               <ion-label>Sign In</ion-label>
             </ion-item>
-            <ion-item button *ngIf="isAuthenticated" [routerLink]="['/admin']">
+            <ion-item button *ngIf="isAuthenticated" [routerLink]="['/admin']" lines="none">
               <ion-icon name="build" slot="start"></ion-icon>
               <ion-label>Admin</ion-label>
             </ion-item>
-            <ion-item button *ngIf="isAuthenticated" (click)="onLogout()">
+            <ion-item button *ngIf="isAuthenticated" (click)="onLogout()" lines="none">
               <ion-icon name="log-out" slot="start"></ion-icon>
               <ion-label>Log Out</ion-label>
             </ion-item>

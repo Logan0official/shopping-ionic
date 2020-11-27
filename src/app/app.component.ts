@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Subscription } from 'rxjs';
@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public authService: AuthService, 
-    public productService: ProductService
+    public productService: ProductService,
+    public toastController: ToastController
   ) {
     this.initializeApp();
   }
@@ -44,5 +45,23 @@ export class AppComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+
+    this.logoutToast();
+  }
+
+  async logoutToast() {
+    const toast = await this.toastController.create({
+      message: 'You are signed out!',
+      position: 'top',
+      duration: 3000,
+      color: 'warning', 
+      buttons: [
+        {
+          side: 'start',
+          icon: 'warning-outline',
+        }
+      ]
+    });
+    toast.present();
   }
 }

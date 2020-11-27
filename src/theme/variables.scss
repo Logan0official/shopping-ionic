@@ -41,8 +41,9 @@
   --ion-color-warning-contrast: #000000;
   --ion-color-warning-contrast-rgb: 0, 0, 0;
   --ion-color-warning-shade: #e0ac08;
-  --ion-color-warning-tint: #ffca22;
-  --ion-color-warning-tint-rgb: 255, 202, 34;
+  --ion-color-warning-tint: rgb(255, 202, 34);
+  --ion-color-warning-my: #ffe591;
+  --ion-color-warning-button: #ffefbd;
 
   /** danger **/
   --ion-color-danger: #eb445a;
