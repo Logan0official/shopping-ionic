@@ -27,6 +27,11 @@ const routes: Routes = [
         path: 'admin',
         loadChildren: () => import('../admin/admin.module').then(m => m.AdminPageModule)
       },
+      { 
+        path: '**',
+        redirectTo: '/products',
+        pathMatch: 'full'
+      },
       {
         path: '',
         redirectTo: '/products',
